@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Skills</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+            text-align: center;
+        }
+        .container {
+            max-width: 80%;
+            margin: 50px auto;
+            background: transparent;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        h1 span.my {
+            color: #e6006d;
+        }
+        h1 span.skills {
+            color: #007bff;
+        }
+        .skills {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+        .skill-category {
+            width: 25%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: none;
+            margin: 20px 10px;
+        }
+        .circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(#e6006d var(--percentage), #ddd 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 15px auto;
+        }
+        .skill-box {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            width: 90%;
+            box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+            margin: 12px 0;
+        }
+        .skill-box:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        }
+        @media (max-width: 768px) {
+            .skills {
+                flex-direction: column;
+                align-items: center;
+            }
+            .skill-category {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="my">My</span><span class="skills">Skills</span></h1>
+        
+        <div class="skills">
+            <div class="skill-category">
+                <h2>Frontend</h2>
+                <div class="circle" style="--percentage: 90deg;">90%</div>
+                <div class="skill-box"><h3>HTML</h3></div>
+                <div class="skill-box"><h3>CSS</h3></div>
+                <div class="skill-box"><h3>JavaScript</h3></div>
+                <div class="skill-box"><h3>Tailwind CSS</h3></div>
+                <div class="skill-box"><h3>Bootstrap</h3></div>
+                <div class="skill-box"><h3>React</h3></div>
+            </div>
+            
+            <div class="skill-category">
+                <h2>Backend</h2>
+                <div class="circle" style="--percentage: 75deg;">75%</div>
+                <div class="skill-box"><h3>Node.js</h3></div>
+                <div class="skill-box"><h3>Python</h3></div>
+                <div class="skill-box"><h3>Django</h3></div>
+            </div>
+            
+            <div class="skill-category">
+                <h2>Database</h2>
+                <div class="circle" style="--percentage: 80deg;">80%</div>
+                <div class="skill-box"><h3>MongoDB</h3></div>
+                <div class="skill-box"><h3>MySQL</h3></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

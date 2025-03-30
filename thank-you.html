@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            transition: background 0.3s, color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            max-width: 90%;
+            width: 400px;
+        }
+
+        h1 {
+            color: #28a745;
+            font-size: 2rem;
+        }
+
+        .message {
+            font-size: 1rem;
+            color: #333;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #007BFF;
+            width: 0;
+            animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background-color: #222;
+            color: white;
+        }
+
+        .dark-mode .container {
+            background-color: #333;
+            color: white;
+        }
+
+        .toggle-dark {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px;
+            background: #000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+                height: auto;
+                display: block;
+            }
+            .container {
+                width: 90%;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .message {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="toggle-dark" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">🌙 Dark Mode</button>
+
+    <div class="container">
+        <h1>🎉 Thank You! 🎉</h1>
+        <p class="message">Your message has been successfully sent. We will get back to you soon!</p>
+        <p class="loading">Redirecting to homepage in <span id="countdown">5</span> seconds...</p>
+        <a href="index.html" class="btn">Go Back to Home</a>
+    </div>
+
+    <!-- Confetti Effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Confetti Effect
+        setTimeout(() => {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }, 500);
+
+        // Auto Redirect Countdown
+        let timeLeft = 15;
+        let countdownElem = document.getElementById("countdown");
+
+        let timer = setInterval(() => {
+            timeLeft--;
+            countdownElem.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                window.location.href = "index.html";
+            }
+        }, 1000);
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+
+</body>
+</html>
